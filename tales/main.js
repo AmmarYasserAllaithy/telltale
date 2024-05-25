@@ -29,7 +29,7 @@ const renderTale = tale =>
       })
     ],
 
-    onClick: () => location.assign(join('/tale/?id=', tale.id))
+    onClick: () => location.assign(join('../tale/?id=', tale.id))
   });
 
 const populate = list => {

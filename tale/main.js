@@ -1,6 +1,6 @@
 const telltaler = getUserCookie();
 
-if (!telltaler) location.replace('/tales/');
+if (!telltaler) location.replace('../tales/');
 
 const headerEl = qs('header');
 const titleEl = qs('.title');
@@ -69,11 +69,11 @@ onClick(qs('.ctrl.copy'), () =>
 );
 
 /// Edit listener
-onClick(qs('.ctrl.edit'), () => location.assign(join('/compose/?id=', id)));
+onClick(qs('.ctrl.edit'), () => location.assign(join('../compose/?id=', id)));
 
 /// Delete listener
 onClick(qs('.ctrl.delete'), () => {
   if (!confirm('Delete tale?', false)) return;
 
-  deleteTaleById(id, () => location.replace('/tales/'));
+  deleteTaleById(id, () => location.replace('../tales/'));
 });

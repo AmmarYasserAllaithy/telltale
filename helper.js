@@ -116,7 +116,7 @@ const login = (email, password, fireErr = true) => {
     password,
     user => {
       setUserCookie(user);
-      location.replace('/tales/');
+      location.replace('./tales/');
     },
     msg => {
       if (fireErr) alert(msg);
@@ -164,7 +164,7 @@ const register = (first, last, email, password) => {
 
 const logout = () => {
   clearUserCookie();
-  location.replace('/');
+  location.replace('./signin/');
 };
 
 /**

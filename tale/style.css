@@ -1,4 +1,4 @@
-@import '/assets/style/base.css';
+@import '../assets/style/base.css';
 
 body>* {
   margin: 1rem auto;

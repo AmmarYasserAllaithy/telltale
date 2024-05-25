@@ -62,3 +62,7 @@ Tale details _(Arabic characters / Long screenshot)_
 Composer _(in edit mode + auto-save)_
 
 ![screenshot](ui/6.png)
+
+---
+
+> _The server module still being developed._
