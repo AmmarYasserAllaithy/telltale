@@ -1,0 +1,40 @@
+@import '/assets/style/base.css';
+
+body>* {
+  margin: 1rem auto;
+  padding: 1rem 1.25rem;
+}
+
+header {
+  flex-wrap: wrap;
+}
+
+.title {
+  flex-grow: 1;
+  flex-basis: 100%;
+  margin-bottom: 2rem;
+}
+
+.ctrl-holder,
+.content {
+  overflow: auto;
+}
+
+.ctrl-holder {
+  gap: 0.9rem;
+}
+
+.ctrl {
+  cursor: pointer;
+  color: var(--bodyClr);
+}
+
+.ctrl:active {
+  color: var(--primaryClr);
+}
+
+.cat {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8pt;
+  background: var(--bodyLightClr);
+}
