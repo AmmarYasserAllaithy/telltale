@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Composer</title>
+
+  <link rel="shortcut icon" href="/assets/images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <h2 class="page-title">Compose new tale</h2>
+  </header>
+
+  <form class="page-wrapper">
+    <div class="input clr flex-sb auto-save">
+      <p class="bold">Auto save</p>
+
+      <p class="flex toggle-wrapper">
+        <span class="clr" id="save-status"></span>
+
+        <!-- Rounded switch -->
+        <label class="switch">
+          <input type="checkbox" id="autosavecheck">
+          <span class="slider round"></span>
+        </label>
+      </p>
+    </div>
+
+    <input type="text" placeholder="Title" class="input bold title" required />
+
+    <article contenteditable="true" class="input content empty" required></article>
+
+    <input type="text" placeholder="Category" class="input category" required />
+
+    <input type="submit" class="btn primary" value="Save" />
+  </form>
+
+
+  <script src="https://ammaryasserallaithy.github.io/arkit.js/index.js"></script>
+  <script src="/helper.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
