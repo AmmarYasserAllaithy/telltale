@@ -1,0 +1,36 @@
+@import 'signin/style.css';
+
+.vector {
+  width: 100%;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+.form-container {
+  border-radius: 8pt;
+}
+
+.flex {
+  gap: 1rem;
+}
+
+.flex>* {
+  flex-grow: 1;
+}
+
+
+@media screen and (min-width: 768px) {
+  .page-wrapper {
+    display: flex;
+    gap: 1rem;
+    place-items: center;
+    place-content: space-evenly;
+  }
+
+  .page-wrapper>* {
+    flex-grow: 1;
+    flex-basis: 45%;
+  }
+}
