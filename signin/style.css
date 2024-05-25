@@ -1,0 +1,29 @@
+@import '/assets/style/base.css';
+
+form {
+  max-width: 768px;
+  margin: 2rem auto;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field>* {
+  display: block;
+}
+
+.btn {
+  margin-top: 2rem;
+}
+
+.reset {
+  text-align: right;
+}
+
+
+@media screen and (max-width: 768px) {
+  .only-in-wide {
+    display: block;
+  }
+}

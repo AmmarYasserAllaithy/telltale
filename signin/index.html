@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Sign in</title>
+
+  <link rel="shortcut icon" href="/assets/images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <h1 class="app-name">Telltale</h1>
+
+    <span>
+      <i class="fa fa-lg fa-bars-staggered"></i>
+    </span>
+  </header>
+
+  <section class="page-wrapper">
+    <h2 class="page-title center">Sign in</h2>
+
+    <form class="mg-auto pd">
+      <div class="form-field">
+        <label for="emailInp">Your email</label>
+
+        <input type="email" id="emailInp" class="input" placeholder="abc@def.ghi" required />
+      </div>
+
+      <div class="form-field">
+        <label for="pwdInp">Your password</label>
+
+        <input type="password" id="pwdInp" class="input" placeholder="Password matches email" required />
+
+        <p class="reset">
+          <a href=".">Reset</a>
+        </p>
+      </div>
+
+      <input type="submit" class="btn primary" value="Login" />
+    </form>
+
+    <article class="center">
+      New member? <a href="/">Create new account</a>
+    </article>
+  </section>
+
+
+  <script src="https://ammaryasserallaithy.github.io/arkit.js/index.js"></script>
+  <script src="/helper.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
