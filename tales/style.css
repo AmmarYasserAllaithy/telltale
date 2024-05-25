@@ -1,0 +1,51 @@
+@import '../assets/style/base.css';
+
+
+.username,
+.logout {
+  cursor: pointer;
+}
+
+.logout {
+  padding: 0.5rem;
+}
+
+/*  */
+
+.search-holder,
+.tale {
+  border-radius: 10pt;
+}
+
+.search-bar {
+  background: transparent;
+}
+
+.tale {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+/*  */
+
+.btn {
+  width: auto;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+}
+
+/*  */
+
+@media screen and (min-width: 768px) {
+  .tales-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tale {
+    margin: 0;
+    flex-basis: 300px;
+    flex-grow: 1;
+  }
+}

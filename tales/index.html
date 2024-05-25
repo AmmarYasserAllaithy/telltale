@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Telltale</title>
+
+  <link rel="shortcut icon" href="/assets/images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <h1 class="app-name">Telltale</h1>
+
+    <div class="flex">
+      <p class="bold username"></p>
+
+      <span class="dim logout">
+        <i class="fa fa-sign-out"></i>
+      </span>
+    </div>
+  </header>
+
+  <section class="page-wrapper">
+    <section>
+      <a href="/compose/" class="btn primary">Compose</a>
+    </section>
+
+    <section class="mg-auto header-shadow search-holder">
+      <input type="search" placeholder="Search for tale by title, content, or category" class="input search-bar" />
+    </section>
+
+    <section class="tales-container"></section>
+  </section>
+
+
+  <script src="https://ammaryasserallaithy.github.io/arkit.js/index.js"></script>
+  <script src="/helper.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
