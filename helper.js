@@ -1,8 +1,12 @@
+
+const rootLoc = location
+
+
 /**
  * constants
  */
 
-const IP = 'http://127.0.0.1';
+const IP = `${rootLoc.protocol}//${rootLoc.hostname}` // 'http://127.0.0.1';
 const PORT = '5555';
 const HOST = join(IP, ':', PORT);
 const API = join(HOST, '/api');
@@ -61,7 +65,7 @@ const getFrom = (url, onSuccess = tale => { }, onFailure = err) =>
   fetch(url)
     .then(rsp => {
       if (rsp.status == 200) rsp.json().then(onSuccess);
-      else rsp.text().then(alert);
+      else rsp.json().then(alert);
     })
     .catch(onFailure);
 
@@ -69,7 +73,7 @@ const deleteFrom = (url, onSuccess = () => { }, onFailure = err) =>
   fetch(url, { method: 'DELETE' })
     .then(rsp => {
       if (rsp.status == 200) onSuccess();
-      else rsp.text().then(alert);
+      else rsp.json().then(alert);
     })
     .catch(onFailure);
 
@@ -116,7 +120,7 @@ const login = (email, password, fireErr = true) => {
     password,
     user => {
       setUserCookie(user);
-      location.replace('./tales/');
+      location.replace('/tales/');
     },
     msg => {
       if (fireErr) alert(msg);
@@ -142,8 +146,8 @@ const register = (first, last, email, password) => {
   fetch(
     usersApi(),
     buildReq({
-      first,
-      last,
+      first_name: first,
+      last_name: last,
       email,
       password
     })
@@ -164,7 +168,7 @@ const register = (first, last, email, password) => {
 
 const logout = () => {
   clearUserCookie();
-  location.replace('./signin/');
+  location.replace('../');
 };
 
 /**
@@ -187,10 +191,10 @@ const getTaleById = (id, onSuccess = tale => { }, onFailure = err) =>
   getFrom(talesApi(id), onSuccess, onFailure);
 
 const getTalesByAuthorId = (id, onSuccess = tales => { }, onFailure = err) =>
-  getFrom(talesApi('byauthor/', id), onSuccess, onFailure);
+  getFrom(talesApi('author/', id), onSuccess, onFailure);
 
 const deleteTaleById = (id, onSuccess = () => { }, onFailure = err) =>
   deleteFrom(talesApi(id), onSuccess, onFailure);
 
 const deleteTalesByAuthorId = (id, onSuccess = () => { }, onFailure = err) =>
-  deleteFrom(talesApi('byauthor/', id), onSuccess, onFailure);
+  deleteFrom(talesApi('author/', id), onSuccess, onFailure);

@@ -12,13 +12,16 @@ const renderTale = tale =>
     tag: 'section',
     cls: 'mg-auto tale',
     style: {
-      background: `#${tale.color}55`
+      background: `#${tale.color}22`,
     },
 
     childs: [
       creator({
         tag: 'h3',
-        cls: 'title',
+        cls: 'max-lines-2 title',
+        style: {
+          background: `#${tale.color}33`,
+        },
         html: tale.title
       }),
 
@@ -40,7 +43,7 @@ const populate = list => {
 ///
 
 if (telltaler) {
-  usernameEl.textContent = '@' + telltaler.first;
+  usernameEl.textContent = telltaler.first_name + ' ' + telltaler.last_name;
 
   getTalesByAuthorId(telltaler.id, list => populate((tales = list)));
 } else logout();
@@ -53,7 +56,7 @@ const check = (txt, query) => txt.search(new RegExp(query, 'gi')) > -1;
 const matchCriteria = query => tale =>
   check(tale.title, query) ||
   check(tale.content, query) ||
-  check(tale.cat, query);
+  check(tale.category, query);
 
 on('input', searchFieldEl, () =>
   populate(tales.filter(matchCriteria(searchFieldEl.value.trim())))
@@ -61,12 +64,15 @@ on('input', searchFieldEl, () =>
 
 /// Logout
 onClick(qs('.logout'), () => {
-  if (confirm('Do you want to logout from your account?', false)) logout();
+  if (confirm('Logout ?', false)) logout();
 });
 
 /// Delete telltaler with his tales
 onClick(usernameEl, () => {
-  if (!confirm('Do you want to DELETE your account permanently?', false))
+  if (!confirm('DELETE your account permanently ?', false))
+    return;
+
+  if (!confirm('Do you REALLY want to \n\n\nDELETE \n\n\nyour account permanently?', false))
     return;
 
   deleteTalesByAuthorId(

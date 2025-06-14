@@ -39,8 +39,8 @@ const renderTale = tale => {
 
   fill(titleEl, tale.title);
   fill(contentEl, tale.content);
-  fill(catEl, tale.cat);
-  fill(dateEl, new Date(tale.created).toLocaleString(locale));
+  fill(catEl, tale.category);
+  fill(dateEl, new Date(tale.created_at).toLocaleString(locale));
 }
 
 getTaleById(id, renderTale)

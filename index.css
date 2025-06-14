@@ -34,3 +34,10 @@ ul {
     flex-basis: 45%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  footer.flex-sb {
+    display: none;
+    text-align: center;
+  }
+}

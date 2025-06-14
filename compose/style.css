@@ -1,7 +1,6 @@
-@import '../assets/style/base.css';
+@import "../assets/style/base.css";
 
-
-form>* {
+form > * {
   margin: 0.75rem auto;
 }
 
@@ -25,18 +24,16 @@ form>* {
 
 .content.empty:before {
   position: absolute;
-  top: 50%;
+  top: 1rem;
   left: 1rem;
-  content: 'Content';
+  content: "Content";
   opacity: 0.5;
-  transform: translateY(-50%);
 }
 
 input.btn.primary {
   width: auto;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
-
 
 /* The switch - the box around the slider */
 .switch {
@@ -62,8 +59,8 @@ input.btn.primary {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -74,19 +71,19 @@ input.btn.primary {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: #ff725e;
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #ff725e;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(25px);
   -ms-transform: translateX(25px);
   transform: translateX(25px);

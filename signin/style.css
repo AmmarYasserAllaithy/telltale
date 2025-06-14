@@ -1,4 +1,4 @@
-@import '../assets/style/base.css';
+@import "../assets/style/base.css";
 
 form {
   max-width: 768px;
@@ -9,7 +9,7 @@ form {
   margin-bottom: 1rem;
 }
 
-.form-field>* {
+.form-field > * {
   display: block;
 }
 
@@ -21,9 +21,12 @@ form {
   text-align: right;
 }
 
-
 @media screen and (max-width: 768px) {
   .only-in-wide {
     display: block;
+  }
+
+  .form-field {
+    width: 100%;
   }
 }

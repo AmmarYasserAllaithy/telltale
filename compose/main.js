@@ -30,7 +30,7 @@ if (tId) {
 
     titleEl.value = tale.title;
     contentEl.innerText = tale.content;
-    categoryEl.value = tale.cat;
+    categoryEl.value = tale.category;
 
     updateEmptyClass();
   });
@@ -45,10 +45,10 @@ const save = (
 ) => {
   let title = titleEl.value.trim();
   let content = contentEl.innerText.trim();
-  let cat = categoryEl.value.trim();
+  let category = categoryEl.value.trim();
   let color = rndHexColor();
 
-  if (!title || !content || !cat) return;
+  if (!title || !content || !category) return;
 
   beforeSave();
 
@@ -58,14 +58,15 @@ const save = (
     Object.assign(curTale, {
       title,
       content,
-      cat
+      category
     });
+
   else
     curTale = {
-      authorId: telltaler.id,
+      author_id: telltaler.id,
       title,
       content,
-      cat,
+      category,
       color
     };
 
