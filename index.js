@@ -24,3 +24,13 @@ on('submit', qs('form'), e => {
 
   md5(password, hashed => register(first, last, email, hashed))
 })
+
+
+
+if (location.host.includes('netlify')) {
+  const footer = qs('footer')
+
+  footer.innerHTML = 'Developed with &hearts; by Ammar Yaser'
+  footer.classList.remove('flex-sb')
+  footer.style.textAlign = 'center'
+}
