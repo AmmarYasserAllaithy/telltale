@@ -63,7 +63,7 @@ const save = (
 
   else
     curTale = {
-      author_id: telltaler.id,
+      author_id: `${telltaler.id}`,
       title,
       content,
       category,
@@ -72,7 +72,7 @@ const save = (
 
   const req = buildReq(curTale, isEditMode ? 'PUT' : 'POST');
 
-  fetch(talesApi(isEditMode ? tId : ''), req)
+  fetch(talesApi(isEditMode ? `/${tId}` : ''), req)
     .then(rsp => rsp.json())
     .then(onSuccess)
     .catch(onFailure);
