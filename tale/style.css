@@ -1,12 +1,13 @@
-@import '../assets/style/base.css';
+@import "../assets/style/base.css";
 
-body>* {
+body > * {
   margin: 1rem auto;
   padding: 1rem 1.25rem;
 }
 
 header {
   flex-wrap: wrap;
+  border-bottom: 1px solid #f5f5f7;
 }
 
 .title {
@@ -37,4 +38,17 @@ header {
   padding: 0.5rem 0.75rem;
   border-radius: 8pt;
   background: var(--bodyLightClr);
+}
+
+@media screen and (min-width: 768px) {
+  .ctrl-holder {
+    gap: 1rem;
+  }
+
+  .ctrl {
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    background: #f5f5f7;
+    border-radius: 6px;
+  }
 }
