@@ -48,11 +48,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    place-content: center;
   }
 
   .tale {
     margin: 0;
     flex-basis: 300px;
     flex-grow: 1;
+    max-width: 50%;
   }
 }

@@ -42,11 +42,14 @@ const populate = list => {
 
 ///
 
-if (telltaler) {
-  usernameEl.textContent = telltaler.first_name + ' ' + telltaler.last_name;
+window.onload = () => {
+  if (telltaler) {
+    usernameEl.textContent = telltaler.first_name + ' ' + telltaler.last_name;
 
-  getTalesByAuthorId(telltaler.id, list => populate((tales = list)));
-} else logout();
+    getTalesByAuthorId(telltaler.id, list => populate((tales = list)))
+  } else logout();
+}
+
 
 ///
 /// Search
