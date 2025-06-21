@@ -1,15 +1,17 @@
-
-const rootLoc = location
+//  ____       __            _             
+// |  _ \ ___ / _| __ _  ___| |_ ___  _ __ 
+// | |_) / _ \ |_ / _` |/ __| __/ _ \| '__|
+// |  _ <  __/  _| (_| | (__| || (_) | |   
+// |_| \_\___|_|  \__,_|\___|\__\___/|_|   
 
 
 /**
  * constants
  */
 
-const IP = `${rootLoc.protocol}//${rootLoc.hostname}` // 'http://127.0.0.1';
-const PORT = '5555';
-const HOST = join(IP, ':', PORT);
-const API = join(HOST, '/api');
+const BASE_URL = location.hostname.match(/netlify|github/gi)
+  ? 'https://telltaleom.ammarpnyasser.workers.dev'
+  : 'http://localhost:8787'
 
 const TELLTALER_KEY = 'TELLTALER';
 
@@ -17,9 +19,9 @@ const TELLTALER_KEY = 'TELLTALER';
  * api endpoints
  */
 
-const usersApi = (...endpoints) => join(API, '/users/', join(...endpoints));
+const usersApi = (...endpoints) => join(BASE_URL, '/api/users', join(...endpoints));
 
-const talesApi = (...endpoints) => join(API, '/tales/', join(...endpoints));
+const talesApi = (...endpoints) => join(BASE_URL, '/api/tales', join(...endpoints));
 
 /**
  * Build post requests
@@ -38,7 +40,7 @@ const buildReq = (body, method = 'POST') => ({
  */
 
 const md5 = (plain, onSuccess, onFailure = err) => {
-  fetch(join(HOST, '/util/md5'), buildReq({ plain }))
+  fetch(join(BASE_URL, '/util/md5'), buildReq({ plain }))
     .then(rsp => rsp.text().then(onSuccess))
     .catch(onFailure);
 };
@@ -97,7 +99,7 @@ const authenticate = (
   onFailure = err
 ) => {
   fetch(
-    usersApi('auth'),
+    usersApi('/auth'),
     buildReq({
       email,
       password
@@ -176,7 +178,7 @@ const logout = () => {
  */
 
 const deleteUserById = (id, onSuccess = () => { }, onFailure = err) =>
-  deleteFrom(usersApi(id), onSuccess, onFailure);
+  deleteFrom(usersApi('/', id), onSuccess, onFailure);
 
 /**
  *  _____     _
@@ -188,13 +190,13 @@ const deleteUserById = (id, onSuccess = () => { }, onFailure = err) =>
  */
 
 const getTaleById = (id, onSuccess = tale => { }, onFailure = err) =>
-  getFrom(talesApi(id), onSuccess, onFailure);
+  getFrom(talesApi('/', id), onSuccess, onFailure);
 
 const getTalesByAuthorId = (id, onSuccess = tales => { }, onFailure = err) =>
-  getFrom(talesApi('author/', id), onSuccess, onFailure);
+  getFrom(talesApi('/author/', id), onSuccess, onFailure);
 
 const deleteTaleById = (id, onSuccess = () => { }, onFailure = err) =>
-  deleteFrom(talesApi(id), onSuccess, onFailure);
+  deleteFrom(talesApi('/', id), onSuccess, onFailure);
 
 const deleteTalesByAuthorId = (id, onSuccess = () => { }, onFailure = err) =>
-  deleteFrom(talesApi('author/', id), onSuccess, onFailure);
+  deleteFrom(talesApi('/author/', id), onSuccess, onFailure);
