@@ -25,43 +25,43 @@ in a free and rich-text way.
 
 Landing page
 
-![screenshot](ui/1.png)
+![screenshot](screenshots/1.png)
 
 Sign in
 
-![screenshot](ui/2.png)
+![screenshot](screenshots/2.png)
 
 User tales _(Wide screen)_
 
-![screenshot](ui/3.1.png)
+![screenshot](screenshots/3.1.png)
 
 User tales _(Medium screen)_
 
-![screenshot](ui/3.2.png)
+![screenshot](screenshots/3.2.png)
 
 User tales _(Narrow screen)_
 
-![screenshot](ui/3.3.png)
+![screenshot](screenshots/3.3.png)
 
 Composer _(auto-save disabled by default)_
 
-![screenshot](ui/4.png)
+![screenshot](screenshots/4.png)
 
 Tale details _(HTML parsing)_
 
-![screenshot](ui/5.1.png)
+![screenshot](screenshots/5.1.png)
 
 Tale details _(Centered & maximized font)_
 
-![screenshot](ui/5.2.png)
+![screenshot](screenshots/5.2.png)
 
 Tale details _(Arabic characters / Long screenshot)_
 
-![screenshot](ui/5.3.png)
+![screenshot](screenshots/5.3.png)
 
 Composer _(in edit mode + auto-save)_
 
-![screenshot](ui/6.png)
+![screenshot](screenshots/6.png)
 
 ---
 
