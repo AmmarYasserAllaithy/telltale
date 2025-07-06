@@ -1,4 +1,9 @@
-autoLoginIfApplicable()
+
+import { autoLoginByToken, register } from "../_utils/api/users_service.js"
+import { hash } from "../_utils/api/utils_service.js"
+
+
+autoLoginByToken()
 
 ///
 
@@ -8,7 +13,9 @@ const emailEl = qs('#emailInp')
 const pwdEl = qs('#pwdInp')
 const confPwdEl = qs('#confPwdInp')
 
+
 on('submit', qs('form'), e => {
+
   e.preventDefault()
 
   let first = firstEl.value.trim()
@@ -22,7 +29,11 @@ on('submit', qs('form'), e => {
     return
   }
 
-  md5(password, hashed => register(first, last, email, hashed))
+  hash(
+    password,
+    resp => register(first, last, email, resp.md5)
+  )
+
 })
 
 
