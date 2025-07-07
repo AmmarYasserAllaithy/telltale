@@ -1,4 +1,6 @@
 
+import { getTokenFromCookies } from "../cookies.js"
+
 
 /**
  * constants
@@ -34,7 +36,7 @@ const optionsBuilder = (method = 'GET', body = '') => {
         method,
         headers: {
             'content-type': 'application/json',
-            'auth-token': localStorage.getItem(TELLTALE_TOKEN_KEY) ?? '',
+            'Authorization': `Bearer ${getTokenFromCookies()}`,
         },
     }
 
@@ -69,6 +71,22 @@ const requestBuilder = (
 }
 
 
+const getRequestBuilder = (url, onSuccess, onFailure = {}) =>
+    requestBuilder(url, 'GET', '', onSuccess, onFailure)
+
+
+const postRequestBuilder = (url, body, onSuccess, onFailure = {}) =>
+    requestBuilder(url, 'POST', body, onSuccess, onFailure)
+
+
+const putRequestBuilder = (url, body, onSuccess, onFailure = {}) =>
+    requestBuilder(url, 'PUT', body, onSuccess, onFailure)
+
+
+const deleteRequestBuilder = (url, onSuccess, onFailure = {}) =>
+    requestBuilder(url, 'DELETE', '', onSuccess, onFailure)
+
+
 
 /**
  * export
@@ -80,5 +98,8 @@ export {
     usersApi,
     talesApi,
     utilsApi,
-    requestBuilder,
+    getRequestBuilder,
+    postRequestBuilder,
+    putRequestBuilder,
+    deleteRequestBuilder,
 }

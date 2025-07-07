@@ -1,12 +1,11 @@
 
-import { requestBuilder, utilsApi } from "./base.js"
+import { postRequestBuilder, utilsApi } from "./base.js"
 
 
 const hash = (plain, onSuccess, onFailure = {}) => {
 
-    requestBuilder(
+    postRequestBuilder(
         utilsApi('/hash'),
-        'POST',
         {
             plain
         },
