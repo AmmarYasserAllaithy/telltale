@@ -1,6 +1,11 @@
-const telltaler = getUserCookie();
 
-if (!telltaler) location.replace('../tales/');
+import { getTokenFromCookies } from "../_utils/cookies.js"
+import { getTaleById, deleteTaleById } from "../_utils/api/tales_service.js"
+
+
+
+if (!getTokenFromCookies()) location.replace('../tales/')
+
 
 const headerEl = qs('header');
 const titleEl = qs('.title');
@@ -69,11 +74,11 @@ onClick(qs('.ctrl.copy'), () =>
 );
 
 /// Edit listener
-onClick(qs('.ctrl.edit'), () => location.assign(join('../compose/?id=', id)));
+onClick(qs('.ctrl.edit'), () => location.assign(join('../editor/?id=', id)));
 
 /// Delete listener
 onClick(qs('.ctrl.delete'), () => {
   if (!confirm('Delete tale?', false)) return;
 
-  deleteTaleById(id, () => location.replace('../tales/'));
+  deleteTaleById(id, () => location.replace('../my-tales/'));
 });
