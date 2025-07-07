@@ -1,5 +1,5 @@
 
-import { logout } from "../_utils/api/users_service.js";
+import { logout, USER_NAME_KEY } from "../_utils/api/users_service.js";
 import { deleteAuthorTales, getAuthorTales } from "../_utils/api/tales_service.js";
 import { getTokenFromCookies } from "../_utils/cookies.js"
 
@@ -50,7 +50,7 @@ const populate = list => {
 
 // window.onload = () => {
 if (token) {
-  // usernameEl.textContent = token.first_name + ' ' + token.last_name;
+  usernameEl.textContent = localStorage.getItem(USER_NAME_KEY)
 
   getAuthorTales(list => populate((tales = list)))
 
