@@ -1,3 +1,10 @@
+
+import { postRequestBuilder, putRequestBuilder, talesApi } from "../_utils/api/base.js";
+import { getTaleById } from "../_utils/api/tales_service.js"
+import { USER_ID_KEY } from "../_utils/api/users_service.js";
+
+
+
 const pageTitle = qs('.page-title');
 const form = qs('form');
 const titleEl = qs('.title');
@@ -11,7 +18,7 @@ const saveBtn = qs('.btn');
 
 const EMPTY = 'empty';
 const GONE = 'gone';
-const telltaler = getUserCookie();
+const userId = localStorage.getItem(USER_ID_KEY)
 
 let tId = new URLSearchParams(location.search).get('id');
 
@@ -40,7 +47,7 @@ if (tId) {
 
 const save = (
   beforeSave = () => { },
-  onSuccess = tale => history.back(),
+  onSuccess = tale => location.replace('../my-tales/'),
   onFailure = err
 ) => {
   let title = titleEl.value.trim();
@@ -59,24 +66,22 @@ const save = (
       title,
       content,
       category
-    });
-
+    })
   else
     curTale = {
-      author_id: `${telltaler.id}`,
+      author_id: userId,
       title,
       content,
       category,
       color
-    };
+    }
 
-  const req = buildReq(curTale, isEditMode ? 'PUT' : 'POST');
+  if (isEditMode)
+    putRequestBuilder(talesApi('/', tId), curTale, () => history.back(), onFailure)
+  else
+    postRequestBuilder(talesApi(), curTale, onSuccess, onFailure)
 
-  fetch(talesApi(isEditMode ? `/${tId}` : ''), req)
-    .then(rsp => rsp.json())
-    .then(onSuccess)
-    .catch(onFailure);
-};
+}
 
 const saveStatus = status => (autoSaveStatusP.textContent = status);
 
