@@ -1,4 +1,5 @@
 
+import { qs, err, on, rndHexColor } from "../_utils/dompico.client.js"
 import { postRequestBuilder, putRequestBuilder, talesApi } from "../_utils/api/base.js";
 import { getTaleById } from "../_utils/api/tales_service.js"
 import { USER_ID_KEY } from "../_utils/api/users_service.js";
