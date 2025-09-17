@@ -1,4 +1,5 @@
 
+import { setCookie, getCookie } from './dompico.client.js'
 import { TELLTALE_TOKEN_KEY } from "./api/base.js"
 
 
