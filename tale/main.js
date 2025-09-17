@@ -1,4 +1,5 @@
 
+import { qs, join, onClick } from "../_utils/dompico.client.js"
 import { getTokenFromCookies } from "../_utils/cookies.js"
 import { getTaleById, deleteTaleById } from "../_utils/api/tales_service.js"
 
