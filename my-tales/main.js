@@ -1,4 +1,5 @@
 
+import { qs, creator, on, onClick, join } from "../_utils/dompico.client.js"
 import { logout, USER_NAME_KEY } from "../_utils/api/users_service.js";
 import { deleteAuthorTales, getAuthorTales } from "../_utils/api/tales_service.js";
 import { getTokenFromCookies } from "../_utils/cookies.js"
