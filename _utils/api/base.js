@@ -1,4 +1,5 @@
 
+import { join } from "../dompico.client.js"
 import { getTokenFromCookies } from "../cookies.js"
 
 
